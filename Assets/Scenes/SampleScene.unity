@@ -2055,6 +2055,7 @@ GameObject:
   - component: {fileID: 763737443}
   - component: {fileID: 763737444}
   - component: {fileID: 763737445}
+  - component: {fileID: 763737446}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2122,6 +2123,28 @@ MonoBehaviour:
   playerListText: {fileID: 212541780}
   gameSceneName: GameScene
   readyButton: {fileID: 4514652}
+--- !u!114 &763737446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763737441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 1
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &916309173
 GameObject:
   m_ObjectHideFlags: 0
