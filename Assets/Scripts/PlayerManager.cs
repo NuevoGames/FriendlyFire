@@ -12,7 +12,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     public static PlayerManager Instance { get; private set; }
     [SerializeField] private TMP_InputField nameInputField;
     [SerializeField] private TextMeshProUGUI playerListText;
-    [SerializeField] private List<Player> playerList = new List<Player>();
+    [SerializeField] private List<string> playerList = new List<string>();
 
     [SerializeField] private string gameSceneName = "GameScene";
     [SerializeField] private GameObject readyButton;
@@ -80,13 +80,14 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     private void UpdatePlayerList()
     {
         playerList.Clear();
-        playerList.AddRange(PhotonNetwork.PlayerList);
+       
 
         string playerListString = "Player List:\n";
 
-        foreach (Player player in playerList)
+        foreach (Player player in PhotonNetwork.PlayerList)
         {
             string playerName = player.NickName;
+            playerList.Add(playerName);
             playerListString += playerName + "\n";
         }
 
