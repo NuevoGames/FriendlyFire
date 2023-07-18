@@ -9,18 +9,31 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     [SerializeField] private byte maxPlayersPerRoom = 4;
     public TMP_InputField _roomCodeInputField;
+    [SerializeField] private TextMeshProUGUI playerCountText;
 
-  
-    public override void OnConnectedToMaster()
+
+    private void Start()
     {
-
-        if (NetworkManager.Instance.IsConnecting)
-
-        {
-           
-        }
+       
     }
 
+    private void UpdatePlayerCount()
+    {
+        int playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
+        int maxPlayers = PhotonNetwork.CurrentRoom.MaxPlayers;
+
+        playerCountText.text = playerCount + "/" + maxPlayers;
+    }
+
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        UpdatePlayerCount();
+    }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        UpdatePlayerCount();
+    }
 
     public void CreateRoom()
     {
@@ -80,6 +93,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        UpdatePlayerCount();
         Debug.Log("Joined room: " + PhotonNetwork.CurrentRoom.Name);
     }
 
