@@ -17,7 +17,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject readyButton;
 
 
-    private int playersReady = 0;
+    [SerializeField]private int playersReady = 0;
     private bool gameStarted = false;
 
 
@@ -59,6 +59,10 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         UpdatePlayerList();
+        if (PhotonNetwork.IsMasterClient)
+        {
+            playersReady++;
+        }
     }
 
     private void UpdatePlayerList()
@@ -95,21 +99,25 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         UpdatePlayerList();
     }
 
-    public void OnReadyButtonClicked()
-    {
-        if (!gameStarted && PhotonNetwork.IsConnected && !PhotonNetwork.IsMasterClient)
-        {
-            photonView.RPC("IncreasePlayersReady", RpcTarget.MasterClient);
-            readyButton.SetActive(false);
-        }
-    }
-
     [PunRPC]
     private void IncreasePlayersReady()
     {
         Ready();
     }
 
+
+    public void OnReadyButtonClicked()
+    {
+        if (!gameStarted && PhotonNetwork.IsConnected && !PhotonNetwork.IsMasterClient)
+        {
+
+            photonView.RPC("IncreasePlayersReady", RpcTarget.MasterClient);
+            readyButton.SetActive(false);
+        }
+    }
+
+    
+    
     public void Ready()
     {
         playersReady++;
