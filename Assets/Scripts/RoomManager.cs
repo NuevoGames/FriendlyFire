@@ -5,7 +5,7 @@ using TMPro;
 
 public class RoomManager : MonoBehaviourPunCallbacks
 {
-    private const int CodeLength = 4;
+    private const int CodeLength = 3;
 
     [SerializeField] private byte maxPlayersPerRoom = 4;
     public TMP_InputField _roomCodeInputField;

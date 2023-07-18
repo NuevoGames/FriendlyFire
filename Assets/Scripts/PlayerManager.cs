@@ -9,6 +9,7 @@ using Unity.VisualScripting;
 
 public class PlayerManager : MonoBehaviourPunCallbacks
 {
+    public static PlayerManager Instance { get; private set; }
     [SerializeField] private TMP_InputField nameInputField;
     [SerializeField] private TextMeshProUGUI playerListText;
     [SerializeField] private List<Player> playerList = new List<Player>();
@@ -23,8 +24,19 @@ public class PlayerManager : MonoBehaviourPunCallbacks
 
     private const string PlayerNameKey = "PlayerName";
 
-   
 
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+       
+    }
     private void Start()
     {
         LoadPlayerName();
