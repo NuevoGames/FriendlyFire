@@ -12,7 +12,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     public static PlayerManager Instance { get; private set; }
     [SerializeField] private TMP_InputField nameInputField;
     [SerializeField] private TextMeshProUGUI playerListText;
-    [SerializeField] private List<string> playerList = new List<string>();
+    public List<string> playerList = new List<string>();
 
     [SerializeField] private string gameSceneName = "GameScene";
     [SerializeField] private GameObject readyButton;

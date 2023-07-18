@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Realtime;
 using Photon.Pun;
+using UnityEngine.UI;
 using TMPro;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI recievedQuestion;
+    [SerializeField] private Button playerVoteButtonPrefab;
+    [SerializeField] private Transform votingTab;
     private QuestionGenerator questionGenerator;
 
 
@@ -34,6 +37,21 @@ public class GameManager : MonoBehaviour
         Debug.Log("Received message: " + receivedMessage);
         recievedQuestion.text = receivedMessage;
         // Do something with the received message
+
+        GeneratePlayerButtons();
+    }
+
+
+    private void GeneratePlayerButtons()
+    {
+        var list = PlayerManager.Instance.playerList;
+
+        foreach (var playerName in list)
+        {
+            var tempButton = Instantiate(playerVoteButtonPrefab, votingTab);
+            var child = tempButton.transform.GetChild(0);
+            child.GetComponent<TextMeshProUGUI>().text = playerName; 
+        }
     }
 }
 
