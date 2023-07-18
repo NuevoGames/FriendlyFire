@@ -50,7 +50,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         roomCode = _roomCodeInputField.text;
         if (!string.IsNullOrEmpty(roomCode))
         {
-            PhotonNetwork.JoinRoom(roomCode);
+            PhotonNetwork.JoinRoom(roomCode.ToUpper());
         }
     }
 
