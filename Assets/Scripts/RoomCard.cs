@@ -2,11 +2,12 @@ using UnityEngine;
 using Photon.Realtime;
 using UnityEngine.UI;
 using Photon.Pun;
+using TMPro;
 
 public class RoomCard : MonoBehaviour
 {
-    [SerializeField] private Text roomNameText;
-    [SerializeField] private Text playerCountText;
+    [SerializeField] private TextMeshProUGUI roomNameText;
+    [SerializeField] private TextMeshProUGUI playerCountText;
 
     private RoomInfo roomInfo;
 

@@ -40,9 +40,12 @@ public class RoomManager : MonoBehaviourPunCallbacks
         RoomOptions roomOptions = new RoomOptions
         {
             MaxPlayers = maxPlayersPerRoom
+            
         };
 
         PhotonNetwork.CreateRoom(GenerateRoomCode(), roomOptions, TypedLobby.Default);
+        
+
     }
 
     public void JoinRoom(string roomCode)
@@ -93,6 +96,10 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        PhotonNetwork.JoinLobby();
+        PhotonNetwork.CurrentRoom.IsOpen = true;
+        PhotonNetwork.CurrentRoom.IsVisible = true;
+
         UpdatePlayerCount();
         Debug.Log("Joined room: " + PhotonNetwork.CurrentRoom.Name);
     }

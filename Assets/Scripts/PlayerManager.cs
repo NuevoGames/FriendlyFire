@@ -115,7 +115,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         playersReady++;
     }
 
-    private void StartGame()
+    public void StartGame()
     {
         if (gameStarted)
         {
