@@ -25,7 +25,7 @@ public class PlayerVoteButton : MonoBehaviour
     {
         // Add your custom logic here that you want to execute when the button is clicked
         Debug.Log("Button Clicked!");
-        var buttonText = button.GetComponentInChildren<Text>();
+        var buttonText = button.GetComponentInChildren<TextMeshProUGUI>();
         GameManager.Instance.GetComponent<Voting>().VoteForPlayer(buttonText.text);
     }
 }
