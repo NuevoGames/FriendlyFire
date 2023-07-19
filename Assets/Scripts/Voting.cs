@@ -66,7 +66,7 @@ public class Voting : MonoBehaviour
                 winner = kvp.Key;
             }
         }
-
+        Debug.Log(winner);
         return winner;
     }
 
