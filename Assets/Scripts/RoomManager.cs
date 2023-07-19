@@ -10,6 +10,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     [SerializeField] private byte maxPlayersPerRoom = 4;
     public TMP_InputField _roomCodeInputField;
     [SerializeField] private TextMeshProUGUI playerCountText;
+    [SerializeField] private TextMeshProUGUI roomCodeDisplay;
 
 
     private void Start()
@@ -102,6 +103,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
         UpdatePlayerCount();
         Debug.Log("Joined room: " + PhotonNetwork.CurrentRoom.Name);
+        roomCodeDisplay.text = PhotonNetwork.CurrentRoom.Name;
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)
