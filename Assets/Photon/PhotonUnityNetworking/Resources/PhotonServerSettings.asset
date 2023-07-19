@@ -41,6 +41,8 @@ MonoBehaviour:
   - RespawnSpaceship
   - IncreasePlayersReady
   - ReceiveString
+  - UpdateVoteCount
+  - SyncRoundCount
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

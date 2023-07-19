@@ -40,8 +40,10 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     private void Start()
     {
         LoadPlayerName();
+       
     }
 
+ 
     private void LoadPlayerName()
     {
         if (PlayerPrefs.HasKey(PlayerNameKey))
@@ -115,7 +117,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     [PunRPC]
     private void IncreasePlayersReady()
     {
-        Ready();
+        playersReady++;
     }
 
 
@@ -129,12 +131,6 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         }
     }
 
-    
-    
-    public void Ready()
-    {
-        playersReady++;
-    }
 
     public void StartGame()
     {
