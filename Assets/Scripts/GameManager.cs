@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Received message: " + receivedMessage);
         recievedQuestion.text = receivedMessage;
         // Do something with the received message
-
+        Instance.GetComponent<Timer>().StartCountdown(10);
         GeneratePlayerButtons();
     }
 

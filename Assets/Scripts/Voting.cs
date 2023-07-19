@@ -11,7 +11,10 @@ public class Voting : MonoBehaviour
     // A list to store the buttons for voting (you can link these buttons in the Unity Inspector)
     public List<GameObject> votingButtons = new List<GameObject>();
 
-
+    private void Start()
+    {
+        InitializePlayerVotes();
+    }
     public void InitializePlayerVotes()
     {
         var list = PlayerManager.Instance.playerList;

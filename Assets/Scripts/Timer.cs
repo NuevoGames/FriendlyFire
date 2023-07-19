@@ -27,6 +27,7 @@ public class Timer : MonoBehaviour
 
         if (timerDuration <= 0f)
         {
+            GameManager.Instance.GetComponent<Voting>().GetWinner();
             CancelCountdown();
             Debug.Log("Countdown Finished!");
         }
