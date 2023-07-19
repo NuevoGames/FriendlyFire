@@ -2121,6 +2121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameInputField: {fileID: 10888428}
   playerListText: {fileID: 212541780}
+  playerList: []
   gameSceneName: GameScene
   readyButton: {fileID: 4514652}
   playersReady: 0
@@ -2139,7 +2140,7 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 2
+  Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
