@@ -45,12 +45,6 @@ public class GameManager : MonoBehaviour
         photonView = PhotonView.Get(this);
         questionGenerator = GetComponent<QuestionGenerator>();
         Invoke("SendStringOverNetwork", 2f);
-
-        if (PhotonNetwork.IsMasterClient)
-        {
-            // Only the master client should set the initial round count
-            photonView.RPC("SyncRoundCount", RpcTarget.All, currentRound);
-        }
         UpdateRoundText();
 
 
