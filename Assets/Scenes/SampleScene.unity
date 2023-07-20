@@ -3258,7 +3258,7 @@ MonoBehaviour:
   roomCodeDisplay: {fileID: 701431503}
   _playerIconPrefab: {fileID: 1997754095969241768, guid: 8980ccac696de40f2aa2085f5a209d16, type: 3}
   PlayerIconPanel: {fileID: 844326222}
-  startGameButton: {fileID: 0}
+  startGameButton: {fileID: 2003463466}
 --- !u!114 &763737444
 MonoBehaviour:
   m_ObjectHideFlags: 0
