@@ -35,12 +35,16 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         UpdatePlayerCount();
         SpawnPlayerIcon(newPlayer.NickName);
+        ActivateStartButton();
+
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         UpdatePlayerCount();
         Destroy(playerIconsObj[otherPlayer.NickName]);
+        ActivateStartButton();
+
     }
 
     public void ActivateStartButton() {
