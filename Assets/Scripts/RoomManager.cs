@@ -48,7 +48,10 @@ public class RoomManager : MonoBehaviourPunCallbacks
     }
 
     public void ActivateStartButton() {
-        startGameButton.SetActive(PhotonNetwork.IsMasterClient && PhotonNetwork.PlayerList.Length > 1);
+        if (startGameButton) {
+            startGameButton.SetActive(PhotonNetwork.IsMasterClient && PhotonNetwork.PlayerList.Length > 1);
+
+        }
     }
 
     public void CreateRoom()
