@@ -8,6 +8,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 {
     private const int CodeLength = 3;
 
+
     [SerializeField] private byte maxPlayersPerRoom = 4;
     public TMP_InputField _roomCodeInputField;
     [SerializeField] private TextMeshProUGUI playerCountText;
@@ -15,6 +16,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public GameObject _playerIconPrefab;
     [SerializeField] private Transform PlayerIconPanel;
     private Dictionary<string, GameObject> playerIconsObj = new Dictionary<string, GameObject>();
+    [SerializeField] private GameObject startGameButton;
+
     private void Start()
     {
        
@@ -38,6 +41,10 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         UpdatePlayerCount();
         Destroy(playerIconsObj[otherPlayer.NickName]);
+    }
+
+    public void ActivateStartButton() {
+        startGameButton.SetActive(PhotonNetwork.IsMasterClient && PhotonNetwork.PlayerList.Length > 1);
     }
 
     public void CreateRoom()
