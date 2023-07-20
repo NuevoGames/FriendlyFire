@@ -2,6 +2,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
+using System.Collections.Generic;
 
 public class RoomManager : MonoBehaviourPunCallbacks
 {
@@ -11,8 +12,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public TMP_InputField _roomCodeInputField;
     [SerializeField] private TextMeshProUGUI playerCountText;
     [SerializeField] private TextMeshProUGUI roomCodeDisplay;
-
-
+    public GameObject _playerIconPrefab;
+    [SerializeField] private Transform PlayerIconPanel;
+    private Dictionary<string, GameObject> playerIconsObj = new Dictionary<string, GameObject>();
     private void Start()
     {
        
@@ -29,11 +31,13 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         UpdatePlayerCount();
+        SpawnPlayerIcon(newPlayer.NickName);
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         UpdatePlayerCount();
+        Destroy(playerIconsObj[otherPlayer.NickName]);
     }
 
     public void CreateRoom()
@@ -95,12 +99,35 @@ public class RoomManager : MonoBehaviourPunCallbacks
         Debug.LogError("Failed to create room. Error: " + message);
     }
 
+    private void SpawnPlayerIcon(string newPlayer = "")
+    {
+        
+        if (string.IsNullOrEmpty(newPlayer))
+        {
+            foreach (var player in PhotonNetwork.PlayerList)
+            {
+
+                GameObject go = Instantiate(_playerIconPrefab, PlayerIconPanel);
+                go.GetComponentInChildren<TextMeshProUGUI>().text = player.NickName;
+                playerIconsObj[player.NickName] = go;
+
+            }
+        }
+        else
+        {
+            GameObject go = Instantiate(_playerIconPrefab, PlayerIconPanel);
+            go.GetComponentInChildren<TextMeshProUGUI>().text = newPlayer;
+            playerIconsObj[newPlayer] = go;
+        }
+       
+
+    }
     public override void OnJoinedRoom()
     {
         PhotonNetwork.JoinLobby();
         PhotonNetwork.CurrentRoom.IsOpen = true;
         PhotonNetwork.CurrentRoom.IsVisible = true;
-
+        SpawnPlayerIcon();
         UpdatePlayerCount();
         Debug.Log("Joined room: " + PhotonNetwork.CurrentRoom.Name);
         roomCodeDisplay.text = PhotonNetwork.CurrentRoom.Name;

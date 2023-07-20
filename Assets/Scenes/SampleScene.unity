@@ -1332,7 +1332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &363820543
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3244,6 +3244,8 @@ MonoBehaviour:
   _roomCodeInputField: {fileID: 914817454}
   playerCountText: {fileID: 754130049}
   roomCodeDisplay: {fileID: 701431503}
+  _playerIconPrefab: {fileID: 1997754095969241768, guid: 8980ccac696de40f2aa2085f5a209d16, type: 3}
+  PlayerIconPanel: {fileID: 844326222}
 --- !u!114 &763737444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4458,7 +4460,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1210601283
 RectTransform:
   m_ObjectHideFlags: 0
