@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI roundText;
     private int currentRound = 1; // Start with round 1
+    public List<GameObject> _playerVoteButtons = new List<GameObject>();
 
     private void Awake()
     {
@@ -36,18 +37,23 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        photonView= PhotonView.Get(this);
+        ShowQuestions();
+    }
+    public void ShowQuestions()
+    {
+
+        photonView = PhotonView.Get(this);
         questionGenerator = GetComponent<QuestionGenerator>();
         Invoke("SendStringOverNetwork", 2f);
 
         if (PhotonNetwork.IsMasterClient)
         {
             // Only the master client should set the initial round count
-            currentRound = 1;
             photonView.RPC("SyncRoundCount", RpcTarget.All, currentRound);
         }
-
         UpdateRoundText();
+
+
     }
 
 
@@ -64,7 +70,7 @@ public class GameManager : MonoBehaviour
         {
             currentRound++;
             photonView.RPC("SyncRoundCount", RpcTarget.All, currentRound);
-            UpdateRoundText();
+        
         }
     }
 
@@ -72,8 +78,12 @@ public class GameManager : MonoBehaviour
     private void SyncRoundCount(int round)
     {
         // This RPC updates the round count for all clients
+        ClearPlayerButtons();
+        Instance.GetComponent<Voting>().ResetVotes();
         currentRound = round;
-        UpdateRoundText();
+        ShowQuestions();
+
+
     }
 
     public void SendStringOverNetwork()
@@ -105,9 +115,21 @@ public class GameManager : MonoBehaviour
         foreach (var playerName in list)
         {
             var tempButton = Instantiate(playerVoteButtonPrefab, votingTab);
+            _playerVoteButtons.Add(tempButton.gameObject);
             var child = tempButton.transform.GetChild(0);
             child.GetComponent<TextMeshProUGUI>().text = playerName; 
         }
     }
+
+    public void ClearPlayerButtons()
+    {
+        foreach(var item in _playerVoteButtons)
+        {
+            Destroy(item);
+            
+        }
+        _playerVoteButtons.Clear();
+    }
+
 }
 

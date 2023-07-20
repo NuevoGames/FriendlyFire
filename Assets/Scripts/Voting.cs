@@ -8,9 +8,6 @@ public class Voting : MonoBehaviour
     // Dictionary to store player names and their votes
     private Dictionary<string, int> votes = new Dictionary<string, int>();
 
-    // A list to store the buttons for voting (you can link these buttons in the Unity Inspector)
-    public List<GameObject> votingButtons = new List<GameObject>();
-
     private void Start()
     {
         InitializePlayerVotes();
@@ -52,7 +49,7 @@ public class Voting : MonoBehaviour
         }
     }
     // Function to get the player with the most votes
-    public string GetWinner()
+    public void GetWinner()
     {
         string winner = "";
         int maxVotes = 0;
@@ -67,7 +64,9 @@ public class Voting : MonoBehaviour
             }
         }
         Debug.Log(winner);
-        return winner;
+        GameManager.Instance.GoToNextRound();
+        
+      
     }
 
     // Function to reset the voting process
