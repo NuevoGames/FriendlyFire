@@ -99,7 +99,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         }
 
         playerListText.text = playerListString;
-        Debug.Log(playerList);
+        //Debug.Log(playerList);
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)

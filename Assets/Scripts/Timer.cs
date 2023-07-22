@@ -29,7 +29,7 @@ public class Timer : MonoBehaviour
         {
             GameManager.Instance.GetComponent<Voting>().GetWinner();
             CancelCountdown();
-            Debug.Log("Countdown Finished!");
+            //Debug.Log("Countdown Finished!");
         }
     }
 

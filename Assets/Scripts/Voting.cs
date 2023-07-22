@@ -64,7 +64,7 @@ public class Voting : MonoBehaviour
                 winner = kvp.Key;
             }
         }
-        Debug.Log(winner);
+        //Debug.Log(winner);
         GameManager.Instance.GoToNextRound();
         
       
@@ -78,7 +78,7 @@ public class Voting : MonoBehaviour
             votes[key] = 0;
             
         }   
-        Debug.Log("Votes have been reset!");
+        //Debug.Log("Votes have been reset!");
 
         // You can also update the UI to show that the votes have been reset
     }
