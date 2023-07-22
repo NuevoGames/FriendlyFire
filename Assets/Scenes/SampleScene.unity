@@ -3583,7 +3583,7 @@ MonoBehaviour:
   startGameButton: {fileID: 2003463466}
   RoomLobby: {fileID: 1210601282}
   CreatJoinRoomMenu: {fileID: 363820542}
-  JoinRoomLobby: {fileID: 0}
+  JoinRoomLobby: {fileID: 1190921504}
 --- !u!114 &763737444
 MonoBehaviour:
   m_ObjectHideFlags: 0
