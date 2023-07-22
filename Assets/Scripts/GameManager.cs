@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         
     }
 
@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     public void ShowQuestions()
     {
 
+        roundText.text = "";
         photonView = PhotonView.Get(this);
         questionGenerator = GetComponent<QuestionGenerator>();
         Invoke("SendStringOverNetwork", 2f);

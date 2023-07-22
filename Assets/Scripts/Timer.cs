@@ -20,7 +20,7 @@ public class Timer : MonoBehaviour
     private void UpdateCountdown()
     {
         timerDuration -= 1f;
-        Debug.Log("Time Remaining: " + timerDuration.ToString("0"));
+        //Debug.Log("Time Remaining: " + timerDuration.ToString("0"));
         if (timerText != null) {
             timerText.text = timerDuration.ToString();
         }
