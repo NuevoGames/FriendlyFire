@@ -3596,7 +3596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b3f3dc1c4d6b437f85f5d2563d4c55f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardParent: {fileID: 0}
+  cardParent: {fileID: 844326222}
   roomCardPrefab: {fileID: 4568676876694621736, guid: cef9cbb4bada44aa4af3d28f3b3e28b3, type: 3}
 --- !u!114 &763737445
 MonoBehaviour:
