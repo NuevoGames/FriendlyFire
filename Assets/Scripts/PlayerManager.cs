@@ -77,6 +77,11 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         {
             playersReady++;
         }
+        else
+        {
+            readyButton.SetActive(true);
+        }
+
     }
 
     private void UpdatePlayerList()
@@ -118,6 +123,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     private void IncreasePlayersReady()
     {
         playersReady++;
+       
     }
 
 

@@ -48,12 +48,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         }
     }
 
-    public override void OnConnectedToMaster()
-    {
-        Debug.Log("Connected to Photon Server!");
-      
-
-    }
+    
 
     private void RestartConnection()
     {

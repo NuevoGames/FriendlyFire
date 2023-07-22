@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Photon.Pun;
-using Photon.Realtime;
+using System.Linq;
+
 public class Voting : MonoBehaviour
 {
     
@@ -72,7 +73,11 @@ public class Voting : MonoBehaviour
     // Function to reset the voting process
     public void ResetVotes()
     {
-        votes.Clear();
+        foreach (var key in votes.Keys.ToList())
+        {
+            votes[key] = 0;
+            
+        }   
         Debug.Log("Votes have been reset!");
 
         // You can also update the UI to show that the votes have been reset

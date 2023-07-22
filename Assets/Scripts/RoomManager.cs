@@ -17,6 +17,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     [SerializeField] private Transform PlayerIconPanel;
     private Dictionary<string, GameObject> playerIconsObj = new Dictionary<string, GameObject>();
     [SerializeField] private GameObject startGameButton;
+    [SerializeField] private GameObject RoomLobby,CreatJoinRoomMenu, JoinRoomLobby;
 
     private void Start()
     {
@@ -63,27 +64,40 @@ public class RoomManager : MonoBehaviourPunCallbacks
         };
 
         PhotonNetwork.CreateRoom(GenerateRoomCode(), roomOptions, TypedLobby.Default);
+        HandleError.Instance.ErrorHandler("Creating a room....");
         
 
     }
-
+    public override void OnCreatedRoom()
+    {
+        
+    }
     public void JoinRoom(string roomCode)
     {
         roomCode = _roomCodeInputField.text;
         if (!string.IsNullOrEmpty(roomCode))
         {
             PhotonNetwork.JoinRoom(roomCode.ToUpper());
+            HandleError.Instance.ErrorHandler("Joining a room....");
         }
     }
 
     public void LeaveRoom()
     {
+        foreach (var item in playerIconsObj.Values)
+        {
+            Destroy(item.gameObject);
+        }
+        playerIconsObj.Clear();
         PhotonNetwork.LeaveRoom();
     }
 
-    public void OnLeaveRoomButtonClicked()
+    public override void OnLeftRoom()
     {
-        LeaveRoom();
+        Debug.Log("LeftRoom");
+        RoomLobby.SetActive(false);
+        CreatJoinRoomMenu.SetActive(true);
+
     }
 
 
@@ -108,10 +122,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     }
 
 
-    public override void OnCreateRoomFailed(short returnCode, string message)
-    {
-        Debug.LogError("Failed to create room. Error: " + message);
-    }
+    
 
     private void SpawnPlayerIcon(string newPlayer = "")
     {
@@ -139,6 +150,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         PhotonNetwork.JoinLobby();
+        RoomLobby.SetActive(true);
+        if(JoinRoomLobby != null)JoinRoomLobby.SetActive(false);
         PhotonNetwork.CurrentRoom.IsOpen = true;
         PhotonNetwork.CurrentRoom.IsVisible = true;
         SpawnPlayerIcon();
@@ -147,9 +160,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
         roomCodeDisplay.text = PhotonNetwork.CurrentRoom.Name;
     }
 
-    public override void OnJoinRoomFailed(short returnCode, string message)
-    {
-        Debug.LogError("Failed to join room. Error: " + message);
-    }
+  
 
 }

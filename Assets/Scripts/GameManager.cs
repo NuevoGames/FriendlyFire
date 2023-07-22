@@ -5,7 +5,7 @@ using Photon.Realtime;
 using Photon.Pun;
 using UnityEngine.UI;
 using TMPro;
-using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -66,6 +66,10 @@ public class GameManager : MonoBehaviour
             photonView.RPC("SyncRoundCount", RpcTarget.All, currentRound);
         
         }
+        else
+        {
+            EndGame();
+        }
     }
 
     [PunRPC]
@@ -79,6 +83,12 @@ public class GameManager : MonoBehaviour
 
 
     }
+
+    private void EndGame()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+
 
     public void SendStringOverNetwork()
     {
