@@ -150,8 +150,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         PhotonNetwork.JoinLobby();
+        if (JoinRoomLobby != null) JoinRoomLobby.SetActive(false);
         RoomLobby.SetActive(true);
-        if(JoinRoomLobby != null)JoinRoomLobby.SetActive(false);
+        
         PhotonNetwork.CurrentRoom.IsOpen = true;
         PhotonNetwork.CurrentRoom.IsVisible = true;
         SpawnPlayerIcon();
