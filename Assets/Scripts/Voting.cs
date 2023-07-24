@@ -57,7 +57,7 @@ public class Voting : MonoBehaviour
             Debug.Log("Total Players:" + PhotonNetwork.PlayerList.Length);
 
         }
-        if (totalVoteCount == PhotonNetwork.PlayerList.Length) {
+        if (totalVoteCount >= PhotonNetwork.PlayerList.Length) {
             Debug.Log("Everyone has voted");
             GetWinner();
             GameManager.Instance.GetComponent<Timer>().CancelCountdown();
@@ -69,6 +69,7 @@ public class Voting : MonoBehaviour
     {
         string winner = "";
         int maxVotes = 0;
+        totalVoteCount = 0;
 
         // Loop through the votes dictionary to find the player with the most votes
         foreach (var kvp in votes)
