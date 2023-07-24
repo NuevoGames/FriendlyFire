@@ -1032,6 +1032,7 @@ MonoBehaviour:
   recievedQuestion: {fileID: 1881714795}
   playerVoteButtonPrefab: {fileID: 1576655233814321237, guid: 5aa8048fcf2104d09bd949a8de97cd58, type: 3}
   votingTab: {fileID: 111345933}
+  questionDuration: 60
   maxRounds: 5
   roundText: {fileID: 1544356351}
   _playerVoteButtons: []
@@ -1090,3 +1091,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37cae9cac81041aa8c2f4131ed29a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalVoteCount: 0
