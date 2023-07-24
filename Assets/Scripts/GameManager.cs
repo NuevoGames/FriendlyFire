@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Button playerVoteButtonPrefab;
     [SerializeField] private Transform votingTab;
     private QuestionGenerator questionGenerator;
+    [SerializeField] private int questionDuration = 15;
     PhotonView photonView;
     public int maxRounds = 5; // Maximum number of rounds for the game
 
@@ -108,7 +109,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Received message: " + receivedMessage);
         recievedQuestion.text = receivedMessage;
         // Do something with the received message
-        Instance.GetComponent<Timer>().StartCountdown(10);
+        Instance.GetComponent<Timer>().StartCountdown(questionDuration);
         GeneratePlayerButtons();
     }
 

@@ -40,6 +40,7 @@ public class Voting : MonoBehaviour
     [PunRPC]
     private void UpdateVoteCount(string playerName)
     {
+        int totalVoteCount = 0;
         if (votes.ContainsKey(playerName))
         {
             votes[playerName]++;
@@ -47,6 +48,16 @@ public class Voting : MonoBehaviour
         else
         {
             votes[playerName] = votes[playerName];
+        }
+
+        foreach (var voteKey in votes.Keys) {
+            totalVoteCount += votes[voteKey];
+        }
+        if (totalVoteCount == PhotonNetwork.PlayerList.Length) {
+            Debug.Log("Everyone has voted");
+            GetWinner();
+            GameManager.Instance.GetComponent<Timer>().CancelCountdown();
+
         }
     }
     // Function to get the player with the most votes

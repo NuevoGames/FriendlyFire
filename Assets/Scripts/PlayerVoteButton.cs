@@ -13,7 +13,7 @@ public class PlayerVoteButton : MonoBehaviour
     void Start()
     {
        button =  GetComponent<Button>();
-        button.onClick.AddListener(OnButtonClick);
+       button.onClick.AddListener(OnButtonClick);
     }
 
     // Update is called once per frame

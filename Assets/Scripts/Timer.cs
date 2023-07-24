@@ -33,8 +33,9 @@ public class Timer : MonoBehaviour
         }
     }
 
-    private void CancelCountdown()
+    public void CancelCountdown()
     {
+        timerText.text = "";
         CancelInvoke(nameof(UpdateCountdown));
     }
 }
