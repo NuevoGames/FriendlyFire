@@ -284,7 +284,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10s
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1010,7 +1010,7 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 3
+  Synchronization: 1
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
@@ -1032,6 +1032,7 @@ MonoBehaviour:
   recievedQuestion: {fileID: 1881714795}
   playerVoteButtonPrefab: {fileID: 1576655233814321237, guid: 5aa8048fcf2104d09bd949a8de97cd58, type: 3}
   votingTab: {fileID: 111345933}
+  questionDuration: 15
   maxRounds: 5
   roundText: {fileID: 1544356351}
   _playerVoteButtons: []
@@ -1090,3 +1091,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37cae9cac81041aa8c2f4131ed29a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalVoteCount: 0
