@@ -815,7 +815,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1010,7 +1010,7 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 1
+  Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
@@ -1033,10 +1033,13 @@ MonoBehaviour:
   playerVoteButtonPrefab: {fileID: 1576655233814321237, guid: 5aa8048fcf2104d09bd949a8de97cd58, type: 3}
   votingTab: {fileID: 111345933}
 <<<<<<< HEAD
+<<<<<<< HEAD
   questionDuration: 15
 =======
   questionDuration: 60
 >>>>>>> ffef122825dfee5047e66b83fe671615f92fc5d2
+=======
+>>>>>>> parent of 2328a8e (Update GameScene.unity)
   maxRounds: 5
   roundText: {fileID: 1544356351}
   _playerVoteButtons: []
@@ -1095,4 +1098,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37cae9cac81041aa8c2f4131ed29a32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalVoteCount: 0
