@@ -18,7 +18,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject readyButton;
 
 
-    [SerializeField]private int playersReady = 0;
+    [SerializeField]public int playersReady = 0;
     private bool gameStarted = false;
 
 
