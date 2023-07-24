@@ -123,6 +123,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     private void IncreasePlayersReady()
     {
         playersReady++;
+        GetComponent<RoomManager>().ActivateStartButton();
        
     }
 

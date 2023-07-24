@@ -49,7 +49,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     }
 
     public void ActivateStartButton() {
-        if (startGameButton != null && PlayerManager.Instance.playersReady > 1)
+        if (startGameButton != null)
         {
             startGameButton.SetActive(PhotonNetwork.IsMasterClient);
             Debug.Log("START BUTTON CALLED");
