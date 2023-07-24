@@ -8,6 +8,7 @@ public class Voting : MonoBehaviour
     
     // Dictionary to store player names and their votes
     private Dictionary<string, int> votes = new Dictionary<string, int>();
+    [SerializeField] int totalVoteCount = 0;
 
     private void Start()
     {
@@ -40,7 +41,7 @@ public class Voting : MonoBehaviour
     [PunRPC]
     private void UpdateVoteCount(string playerName)
     {
-        int totalVoteCount = 0;
+
         if (votes.ContainsKey(playerName))
         {
             votes[playerName]++;
