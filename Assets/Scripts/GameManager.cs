@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         if (currentRound < maxRounds)
         {
             currentRound++;
-            photonView.RPC("SyncRoundCount", RpcTarget.All, currentRound, RpcTarget.);
+            photonView.RPC("SyncRoundCount", RpcTarget.All, currentRound);
         
         }
         else
