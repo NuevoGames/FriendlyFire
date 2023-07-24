@@ -52,6 +52,9 @@ public class Voting : MonoBehaviour
 
         foreach (var voteKey in votes.Keys) {
             totalVoteCount += votes[voteKey];
+            Debug.Log("Total Vote count:" + totalVoteCount);
+            Debug.Log("Total Players:" + PhotonNetwork.PlayerList.Length);
+
         }
         if (totalVoteCount == PhotonNetwork.PlayerList.Length) {
             Debug.Log("Everyone has voted");
