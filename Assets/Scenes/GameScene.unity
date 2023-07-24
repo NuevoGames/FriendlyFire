@@ -815,7 +815,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1032,7 +1032,11 @@ MonoBehaviour:
   recievedQuestion: {fileID: 1881714795}
   playerVoteButtonPrefab: {fileID: 1576655233814321237, guid: 5aa8048fcf2104d09bd949a8de97cd58, type: 3}
   votingTab: {fileID: 111345933}
+<<<<<<< HEAD
   questionDuration: 15
+=======
+  questionDuration: 60
+>>>>>>> ffef122825dfee5047e66b83fe671615f92fc5d2
   maxRounds: 5
   roundText: {fileID: 1544356351}
   _playerVoteButtons: []
